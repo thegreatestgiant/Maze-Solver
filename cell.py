@@ -9,6 +9,7 @@ class Cell:
     self.has_right_wall = right
     self.has_top_wall = top
     self.has_bottom_wall = bottom
+    self._visited = False
 
   def draw(self, top_left, bottom_right):
     if self._win == None:
