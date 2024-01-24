@@ -3,7 +3,7 @@ from graphics import Line, Point
 
 class Cell:
 
-  def __init__(self, win, left=True, right=True, top=True, bottom=True):
+  def __init__(self, win=None, left=True, right=True, top=True, bottom=True):
     self._win = win
     self.has_left_wall = left
     self.has_right_wall = right
@@ -22,14 +22,22 @@ class Cell:
     self.y_mid = (self.y1 + self.y2) / 2
     self.center = Point(self.x_mid, self.y_mid)
 
+    color = "navy"
     if self.has_left_wall:
-      self._win.draw_line(Line(top_left, Point(self.x1, self.y2)))
+      color = "black"
+    self._win.draw_line(Line(top_left, Point(self.x1, self.y2)), color)
+    color = "navy"
     if self.has_right_wall:
-      self._win.draw_line(Line(Point(self.x2, self.y1), bottom_right))
+      color = "black"
+    self._win.draw_line(Line(Point(self.x2, self.y1), bottom_right), color)
+    color = "navy"
     if self.has_top_wall:
-      self._win.draw_line(Line(top_left, Point(self.x2, self.y1)))
+      color = "black"
+    self._win.draw_line(Line(top_left, Point(self.x2, self.y1)), color)
+    color = "navy"
     if self.has_bottom_wall:
-      self._win.draw_line(Line(Point(self.x1, self.y2), bottom_right))
+      color = "black"
+    self._win.draw_line(Line(Point(self.x1, self.y2), bottom_right), color)
 
   def draw_move(self, to_cell, undo=False):
     if self._win == None:
