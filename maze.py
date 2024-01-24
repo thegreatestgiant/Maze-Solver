@@ -144,7 +144,6 @@ class Maze:
     # down
     if not cell.has_bottom_wall and not j == self._num_rows - 1:
       directions.append([i, j + 1])
-    print(f"Directions for ({i}, {j}): {directions}")
     for k, l in directions:
       if self._cells[k][l]._visited:
         continue
